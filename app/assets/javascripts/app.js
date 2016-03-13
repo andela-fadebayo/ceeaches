@@ -1,0 +1,1 @@
+ceeaches = angular.module('ceeaches', []);
