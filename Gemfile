@@ -60,6 +60,11 @@ end
 # bower-rails will bridge our Rails application with Bower
 gem 'bower-rails'
 
+# Angular caches templates after it requests them the first time, so we really just need to pre-populate that cache.
+# This way, Angular won't need to request any assets, thus eliminating both the asset pipeline problem as well as
+# the same-origin security policy.
+gem 'angular-rails-templates'
+
 # Note that we're also pinning version 3.2.19 of the sass gem.
 # Currently, a bug in sprockets and/or SASS prevents everything from working as designed,
 # so we need to stay on this version for now.
