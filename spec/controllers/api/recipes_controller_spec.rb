@@ -28,7 +28,7 @@ describe Api::RecipesController do
           comments: 9
       )
 
-      xhr :get, :index, format: :json, keywords: keywords
+      xhr :get, :index, format: :json
     end
 
     subject(:results) { JSON.parse(response.body) }
@@ -37,32 +37,20 @@ describe Api::RecipesController do
       ->(object) { object['name'] }
     end
 
-    context 'when the search finds results' do
-      let(:keywords) { 'cake' }
-
-      it 'returns 200' do
-        expect(response.status).to eq(200)
-      end
-
-      it 'returns two results' do
-        expect(results.size).to eq(2)
-      end
-
-      it 'should include Red Velvet' do
-        expect(results.map(&extract_name)).to include('Red Velvet Cake')
-      end
-
-      it 'should include Irish Cream Chocolate' do
-        expect(results.map(&extract_name)).to include('Irish Cream Chocolate Cheesecake')
-      end
+    it 'returns 200' do
+      expect(response.status).to eq(200)
     end
 
-    context "when the search doesn't find results" do
-      let(:keywords) { 'foo baz' }
+    it 'returns two results' do
+      expect(results.size).to eq(2)
+    end
 
-      it 'returns no results' do
-        expect(results.size).to eq(0)
-      end
+    it 'should include Red Velvet' do
+      expect(results.map(&extract_name)).to include('Red Velvet Cake')
+    end
+
+    it 'should include Irish Cream Chocolate' do
+      expect(results.map(&extract_name)).to include('Irish Cream Chocolate Cheesecake')
     end
   end
 end
