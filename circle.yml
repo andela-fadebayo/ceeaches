@@ -6,3 +6,8 @@ deployment:
       - git push git@heroku.com:ceeaches.git $CIRCLE_SHA1:refs/heads/master
       - heroku run rake db:migrate --app ceeaches:
           timeout: 400 # if your deploys take a long time
+    test:
+      post:
+        - bundle exec rake teaspoon:
+            environment:
+              RAILS_ENV: test
