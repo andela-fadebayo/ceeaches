@@ -1,15 +1,18 @@
 angular.module('ceeaches', [
   'templates',
-  'ngRoute',
-  'ngResource'
+  'ui.router',
+  'services'
 ])
   .config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content');
   }])
-  .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+  .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('home', {
+        url: '/',
         templateUrl: 'index.html',
         controller: 'RecipesController'
-      })
+      });
+
+    $urlRouterProvider.otherwise('/')
   }]);

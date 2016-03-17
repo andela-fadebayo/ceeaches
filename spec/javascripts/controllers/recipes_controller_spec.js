@@ -1,32 +1,22 @@
 describe("RecipesController", function() {
-  var ctrl, location, resource, routeParams, scope, setupController, httpBackend;
+  var ctrl, stateParams, scope, setupController, httpBackend;
 
   scope = null;
   ctrl = null;
-  location = null;
-  routeParams = null;
-  resource = null;
+  stateParams = null;
 
   // access injected service later
   httpBackend = null;
 
-  setupController = function(keywords, results) {
-    return inject(function($location, $routeParams, $rootScope, $resource, $controller, $httpBackend) {
-      var request;
-
+  setupController = function(res) {
+    return inject(function($stateParams, $rootScope, $controller, $httpBackend) {
       scope = $rootScope.$new();
-      location = $location;
-      resource = $resource;
-      routeParams = $routeParams;
-      routeParams.keywords = keywords;
+      stateParams = $stateParams;
 
       // capture the injected service
       httpBackend = $httpBackend;
 
-      if (results) {
-        request = new RegExp("\/recipes.*keywords=" + keywords);
-        httpBackend.expectGET(request).respond(results);
-      }
+      httpBackend.expectGET('/api/recipes/').respond(res);
 
       return ctrl = $controller('RecipesController', {
         $scope: scope,
@@ -44,51 +34,35 @@ describe("RecipesController", function() {
   });
 
   describe('controller initialization', function() {
-    describe('when no keywords present', function() {
-      beforeEach(setupController());
+    var recipes;
 
-      it('defaults to no recipes', function() {
-        expect(scope.recipes).toEqualData([]);
-      });
-    });
+    recipes = [
+      { id: 2, name: 'Red Velvet Cake' },
+      { id: 4, name: 'Irish Cream Chocolate Cheesecake' }
+    ];
 
-    describe('with keywords', function() {
-      var keywords, recipes;
-
-      keywords = 'foo';
-      recipes = [
-        {
-          id: 2,
-          name: 'Baked Potatoes'
-        }, {
-          id: 4,
-          name: 'Potatoes Au Gratin'
-        }
-      ];
-
-      beforeEach(function() {
-        setupController(keywords, recipes);
-        httpBackend.flush();
-      });
-
-      it('calls the back-end', function() {
-        expect(scope.recipes).toEqualData(recipes);
-      });
-    });
-  });
-
-  describe('search()', function() {
     beforeEach(function() {
-      setupController();
+      setupController(recipes);
+      httpBackend.flush();
     });
 
-    it('redirects to itself with a keyword param', function() {
-      var keywords;
-
-      keywords = 'foo';
-      scope.search(keywords);
-      expect(location.path()).toBe('/');
-      expect(location.search()).toEqualData({keywords: keywords});
+    it('gets all recipes from the back-end', function() {
+      expect(scope.recipes).toEqualData(recipes);
     });
   });
+
+  //describe('search()', function() {
+  //  beforeEach(function() {
+  //    setupController();
+  //  });
+  //
+  //  it('redirects to itself with a keyword param', function() {
+  //    var keywords;
+  //
+  //    keywords = 'foo';
+  //    scope.search(keywords);
+  //    expect(location.path()).toBe('/');
+  //    expect(location.search()).toEqualData({keywords: keywords});
+  //  });
+  //});
 });
