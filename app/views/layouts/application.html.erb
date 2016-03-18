@@ -10,9 +10,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
-
+<body ng-controller="RecipesController">
+  <top-nav></top-nav>
+  <div class="cee-content container">
+    <%= yield %>
+  </div>
 </body>
 </html>

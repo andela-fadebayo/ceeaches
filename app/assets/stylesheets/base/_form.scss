@@ -1,0 +1,64 @@
+/* INPUT FIELD */
+.cee-form-control {
+  background-color: $white;
+  border: 1px solid $form-input-border;
+  border-radius: 0;
+  box-shadow: none;
+  color: $form-input-color;
+  display: block;
+  font-size: 16px;
+  padding: 6px 12px;
+  vertical-align: middle;
+  width: 100%;
+  @include transition(all ease-in-out 0.15s);
+}
+
+.cee-form-control:focus {
+  border: none;
+  box-shadow: none;
+  outline: 0;
+}
+
+.cee-input-field input[type="text"],
+.cee-input-field input[type="date"],
+.cee-input-field input[type="email"] {
+  border: 1px solid $form-input-border;
+  margin-bottom: 10px;
+  @include transition(0.15s linear border);
+}
+
+.cee-input-field input[type="text"]:focus,
+.cee-input-field input[type="date"]:focus,
+.cee-input-field input[type="email"]:focus {
+  border: 1px solid $brand-primary;
+  @include transition(0.15s linear border);
+}
+
+/* SELECT FIELD */
+.cee-select {
+  background: $white url("data:image/png;base64,R0lGODlhDwAUAIABAAAAAP///yH5BAEAAAEALAAAAAAPABQAAAIXjI+py+0Po5wH2HsXzmw//lHiSJZmUAAAOw==") no-repeat right;
+  border: 1px solid #ffffff;
+  margin-bottom: 10px;
+  overflow: hidden;
+  @include transition(0.55s linear all);
+
+  &.has-error {
+    border: 1px solid $brand-danger;
+  }
+}
+
+.cee-select:focus,
+.cee-select:hover {
+  border: 1px solid $brand-primary;
+}
+
+.cee-select select {
+  background: none transparent;
+  border: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+}
+
+.cee-select select:focus {
+  outline: none;
+}

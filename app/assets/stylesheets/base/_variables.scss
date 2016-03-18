@@ -1,0 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=Stalemate);
+
+@font-face {
+  font-family: 'Stalemate';
+  src: font_url('Stalemate-Regular.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Close Your Eyes';
+  src: font_url('Close-your-eyes.ttf') format('truetype')
+}
+
+//== Bootstrap Colours Overrides
+$brand-primary:         #9012fe;
+$brand-success:         #0db81e;
+$brand-info:            #0bdedb;
+$brand-warning:         #f09408;
+$brand-danger:          #d9121d;
+
+//== Cee Customs
+$white:                 #ffffff;
+$shadow-box:            rgba(210, 208, 208, 0.5);
+$form-input-border:     #ede9e9;
+$form-input-color:      #a9a9a9

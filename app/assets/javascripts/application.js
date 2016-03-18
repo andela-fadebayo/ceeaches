@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular/angular
+//= require bootstrap-sass-official/assets/javascripts/bootstrap-sprockets
+//= require bootstrap-sass-official/assets/javascripts/bootstrap
 //= require angular-ui-router/release/angular-ui-router
 //= require angular-rails-templates
 //= require_tree .

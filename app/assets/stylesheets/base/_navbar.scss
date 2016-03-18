@@ -1,0 +1,57 @@
+.cee-navbar {
+  background: $white;
+  border: none;
+  padding: 15px 0;
+  @include box-shadow(0 1px 4px 2px $shadow-box);
+
+  .logo {
+    color: $brand-primary;
+    font-family: 'Stalemate', cursive;
+    font-size: 3.125rem;
+
+    &:hover {
+      color: darken($brand-primary, 15%);
+      text-decoration: none;
+    }
+  }
+
+  .navbar-toggle {
+    border-color: $brand-primary;
+
+    .icon-bar {
+      background-color: $brand-primary;
+    }
+  }
+
+  .navbar-nav > li > a {
+    color: $brand-primary;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: darken($brand-primary, 15%);
+      text-decoration: none;
+    }
+  }
+
+  .create-account {
+    border: 1px solid $brand-primary;
+    @include transition(all ease-in-out 0.25s);
+
+    &:hover {
+      background-color: $brand-primary;
+      outline: 0;
+      @include transition(all ease-in-out 0.25s);
+    }
+
+    &:focus,
+    .link:focus {
+      outline: 0;
+    }
+
+    .link:hover {
+      color: $white;
+      outline: 0;
+    }
+  }
+}
