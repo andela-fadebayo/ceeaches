@@ -20,6 +20,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use Puma web server for Heroku deployment
 gem 'puma'
 
+# Devise for user authentication
+gem 'devise'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
