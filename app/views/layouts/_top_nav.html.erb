@@ -13,7 +13,9 @@
       <% if chef_signed_in? %>
         <ul class="nav navbar-nav navbar-right">
           <li class="profile-link">
-            <a href="#">Hi, <%= current_chef.email %></a>
+            <%= link_to(edit_chef_registration_path) do %>
+              Hi, <%= current_chef.first_name %> <%= current_chef.last_name %>
+            <% end %>
           </li>
           <li class="profile-img">
             <%= link_to('LOGOUT', destroy_chef_session_path, method: :delete) %>

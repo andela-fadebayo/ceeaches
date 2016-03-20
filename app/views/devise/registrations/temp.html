@@ -1,0 +1,19 @@
+<div class="text-center">
+  <h5>Or Register with...</h5>
+  <%= link_to(guest_omniauth_authorize_path(:google_oauth2), class: 'google-btn') do %>
+  <div class="btn-social btn-google-plus">
+    <i class="fa fa-google-plus"></i>
+    Google
+  </div>
+  <% end %>
+  <h5>or</h5>
+  <%= link_to(guest_omniauth_authorize_path(:facebook), class: 'facebook-btn') do %>
+  <div class="btn-social btn-facebook">
+    <i class="fa fa-facebook"></i>
+    Facebook
+  </div>
+  <% end %>
+</div>
+
+cee@ceeaches.com
+J7itBfrlaU

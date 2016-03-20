@@ -23,6 +23,9 @@ gem 'puma'
 # Devise for user authentication
 gem 'devise'
 
+# Fontawesome for awesome icons!
+gem 'font-awesome-sass'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
