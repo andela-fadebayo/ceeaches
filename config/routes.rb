@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   # Recipes
   namespace :api do
-    resources :recipes, only: [:index]
+    namespace :v1 do
+      resources :recipes, only: [:index]
+    end
   end
 
   # Example of regular route:

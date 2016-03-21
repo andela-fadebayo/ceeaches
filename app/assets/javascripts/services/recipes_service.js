@@ -4,7 +4,7 @@ angular.module('services', [])
 
     return {
       getAll: function () {
-        return $http.get('/api/recipes/').success(function (data) {
+        return $http.get('/api/v1/recipes/').success(function (data) {
           recipeData = data;
         })
       },
