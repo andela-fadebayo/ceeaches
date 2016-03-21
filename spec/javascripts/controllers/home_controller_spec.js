@@ -1,4 +1,4 @@
-describe("RecipesController", function() {
+describe("HomeController", function() {
   var ctrl, stateParams, scope, setupController, httpBackend;
 
   scope = null;
@@ -16,11 +16,10 @@ describe("RecipesController", function() {
       // capture the injected service
       httpBackend = $httpBackend;
 
-      httpBackend.expectGET('/api/recipes/').respond(res);
+      httpBackend.expectGET('/api/v1/recipes/').respond(res);
 
-      return ctrl = $controller('RecipesController', {
-        $scope: scope,
-        $location: location
+      return ctrl = $controller('HomeController', {
+        $scope: scope
       });
     });
   };
@@ -50,19 +49,4 @@ describe("RecipesController", function() {
       expect(scope.recipes).toEqualData(recipes);
     });
   });
-
-  //describe('search()', function() {
-  //  beforeEach(function() {
-  //    setupController();
-  //  });
-  //
-  //  it('redirects to itself with a keyword param', function() {
-  //    var keywords;
-  //
-  //    keywords = 'foo';
-  //    scope.search(keywords);
-  //    expect(location.path()).toBe('/');
-  //    expect(location.search()).toEqualData({keywords: keywords});
-  //  });
-  //});
 });

@@ -1,0 +1,8 @@
+<div ng-if="!recipe">
+  We couldn't find the recipe you're looking for.
+</div>
+<div ng-if="recipe">
+  <h2 ng-bind="recipe.name"></h2>
+  <p ng-bind="'by ' + recipe.by"></p>
+  <div ng-bind="recipe.description"></div>
+</div>

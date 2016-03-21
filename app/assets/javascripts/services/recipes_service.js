@@ -10,6 +10,9 @@ angular.module('services', [])
       },
       getData: function () {
         return recipeData;
+      },
+      getRecipe: function (id) {
+        return $http.get('/api/v1/recipes/' + id);
       }
     };
   }]);

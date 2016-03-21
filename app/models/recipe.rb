@@ -1,5 +1,6 @@
 class Recipe < ActiveRecord::Base
   has_many :comments, dependent: :destroy
+  belongs_to :chef
 
   validates_presence_of :name
   validates_presence_of :by

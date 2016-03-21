@@ -1,6 +1,6 @@
 
-angular.module('ceeaches')
-  .controller('RecipesController', ['$scope', '$state', '$stateParams', 'recipeService',
+angular.module('controllers', [])
+  .controller('HomeController', ['$scope', '$state', '$stateParams', 'recipeService',
     function($scope, $state, $stateParams, recipeService) {
       recipeService.getAll().then(function() {
         $scope.recipes = recipeService.getData();

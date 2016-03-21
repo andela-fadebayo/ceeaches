@@ -1,6 +1,7 @@
 angular.module('ceeaches', [
   'templates',
   'ui.router',
+  'controllers',
   'services'
 ])
   .config(['$httpProvider', function ($httpProvider) {
@@ -10,8 +11,13 @@ angular.module('ceeaches', [
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'index.html',
-        controller: 'RecipesController'
+        templateUrl: 'home.html',
+        controller: 'HomeController'
+      })
+      .state('recipe', {
+        url: '/recipe/:id',
+        templateUrl: 'recipe.html',
+        controller: 'RecipeController'
       });
 
     $urlRouterProvider.otherwise('/')

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Api::RecipesController do
+describe Api::V1::RecipesController do
   describe 'GET index' do
     before do
       Recipe.create!(
@@ -12,8 +12,7 @@ describe Api::RecipesController do
           source: 'http://allrecipes.com/recipe/9295/red-velvet-cake/',
           favourites: 5,
           likes: 34,
-          shares: 8,
-          comments: 3
+          shares: 8
       )
       Recipe.create!(
           name: 'Irish Cream Chocolate Cheesecake',
@@ -24,8 +23,7 @@ describe Api::RecipesController do
           source: 'http://allrecipes.com/recipe/7284/irish-cream-chocolate-cheesecake/',
           favourites: 7,
           likes: 12,
-          shares: 4,
-          comments: 9
+          shares: 4
       )
 
       xhr :get, :index, format: :json
