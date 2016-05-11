@@ -8,4 +8,6 @@ angular.module('controllers', [])
 
       $scope.search = function(keywords) {
       };
+
+      $scope.fiyin = 'Something special from home controller.';
 }]);
