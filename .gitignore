@@ -14,4 +14,4 @@
 /log/*
 !/log/.keep
 /tmp
-/vendor
+/vendor/assets/bower_components
