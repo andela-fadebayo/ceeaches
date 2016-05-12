@@ -1,5 +1,6 @@
 dependencies:
   pre:
+    - gem install rake
     - bundle exec rake bower:install
 deployment:
   production:
