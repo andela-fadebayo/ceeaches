@@ -1,11 +1,6 @@
 dependencies:
   pre:
     - bundle exec rake bower:install
-test:
-  post:
-    - bundle exec rake teaspoon:
-        environment:
-          RAILS_ENV: test
 deployment:
   production:
     branch: master
