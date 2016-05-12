@@ -1,3 +1,6 @@
+dependencies:
+  pre:
+    - rake bower:install
 test:
   post:
     - bundle exec rake teaspoon:
